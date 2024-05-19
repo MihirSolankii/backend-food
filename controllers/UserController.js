@@ -7,16 +7,16 @@ import validator from "validator"
 export const loginuser = async (req, res) => {
     const{email,password}=req.body;
     try {
-        const user=await User.findOne({email})
-        if(!user){
-            return res.status(404).json({message:"user not found"});
-        }
-        const ismatch=await bcrypt.compare(password,user.password);
-        if(!ismatch){
-            return res.status(400).json({message:"invalid credentials"});
-        }
-        const token=generatetoken(user._id);
-        res.status(200).json({user,token});
+        // const user=await User.findOne({email})
+        // if(!user){
+        //     return res.status(404).json({message:"user not found"});
+        // }
+        // const ismatch=await bcrypt.compare(password,user.password);
+        // if(!ismatch){
+        //     return res.status(400).json({message:"invalid credentials"});
+        // }
+        // const token=generatetoken(user._id);
+        // res.status(200).json({user,token});
     } catch (error) {
         console.log(error);
         res.status(400).json({message:"failed to login"});
